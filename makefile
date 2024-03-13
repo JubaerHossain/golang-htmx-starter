@@ -1,3 +1,4 @@
+APP_NAME = "go-echo-template"
 install:
 	go mod tidy
 	bun install
@@ -5,3 +6,9 @@ install:
 
 dev:
 	air -c ./.air.toml
+
+build:
+	go build -o bin/$(APP_NAME) cmd/main.go
+
+run:
+	/bin/bash -c "bin/$(APP_NAME)"
