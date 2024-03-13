@@ -7,7 +7,6 @@
       id="hello-world"
       class="text-2xl text-center font-bold text-gray-700 p-6">
       <h1>{{ .Title }}</h1>
-      <p>Build Version: {{ .BuildVersion }}</p>
       <p>Session Hello: {{ .HelloSession }}</p>
     </div>
     <!-- Instructions -->
@@ -17,7 +16,7 @@
       hx-trigger="click"
       hx-swap="innerHTML transition:true"
       hx-get="/api/hello">
-      <p>Click the text to simulate an htmx API call.</p>
+      <button>Click here</button>
     </div>
   </body>
 </html>

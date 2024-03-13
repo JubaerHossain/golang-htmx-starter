@@ -32,7 +32,7 @@ func (t *TemplateRenderer) Render(w io.Writer, name string, data interface{}, c 
 func NewRenderer(fs fs.FS) (*TemplateRenderer, error) {
 	// Parse the main and fragment templates
 	modelsGlob := path.Base("*.html")
-	fragmentsGlob := path.Join("fragments", "*.html")
+	fragmentsGlob := path.Join("partials", "*.html")
 	tmpl, err := template.ParseFS(fs, modelsGlob, fragmentsGlob)
 	if err != nil {
 		return nil, err

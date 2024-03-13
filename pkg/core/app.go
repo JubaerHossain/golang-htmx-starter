@@ -32,7 +32,7 @@ func NewApp() *App {
 	app := &App{
 		HttpPort:     httpPort,
 		Echo:         echo.New(),
-		PublicFS:     webui.PublicFS,
+		PublicFS:     html.PublicFS,
 		BuildVersion: getEnvDefault("BUILD_VERSION", "development"),
 	}
 
@@ -45,7 +45,7 @@ func NewApp() *App {
 	// Pimp the echo instance
 	e := app.Echo
 	e.Renderer = renderer
-	e.StaticFS("/", webui.StaticFS)
+	e.StaticFS("/", html.StaticFS)
 	e.Use(http.SetCacheControl)
 
 	return app

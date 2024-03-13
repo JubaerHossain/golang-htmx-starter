@@ -1,4 +1,4 @@
-package webui
+package html
 
 import (
 	"embed"
@@ -10,5 +10,5 @@ import (
 //
 //go:embed public/*
 var public embed.FS
-var PublicFS = echo.MustSubFS(public, "public")
+var PublicFS = echo.MustSubFS(public, "public/templates")
 var StaticFS = echo.MustSubFS(public, "public/assets")
