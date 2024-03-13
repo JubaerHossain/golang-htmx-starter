@@ -6,7 +6,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/JubaerHossain/golang-htmx-starter/internal/webui"
+	"github.com/JubaerHossain/golang-htmx-starter/static"
 	"github.com/JubaerHossain/golang-htmx-starter/pkg/http"
 	"github.com/JubaerHossain/golang-htmx-starter/pkg/render"
 	"github.com/joho/godotenv"

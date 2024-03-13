@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/JubaerHossain/golang-htmx-starter/internal/serve"
+	"github.com/JubaerHossain/golang-htmx-starter/internal"
 	"github.com/JubaerHossain/golang-htmx-starter/pkg/core"
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo-contrib/session"
