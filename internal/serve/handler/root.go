@@ -21,7 +21,7 @@ func RootPath(c echo.Context, a *core.App) error {
 
 	// Create a data map to pass to the renderer
 	data := map[string]interface{}{
-		"Title":        "Kickstart Echo Htmx",
+		"Title":        "Welcome Htmx",
 		"HelloSession": helloValue,
 	}
 

@@ -1,6 +1,7 @@
 install:
 	go mod tidy
 	bun install
+	bun run dev:css
 
 dev:
-	chmod +x dev.sh && ./dev.sh
+	air -c ./.air.toml
