@@ -1,61 +1,37 @@
 package main
 
 import (
-	"fmt"
 	"log"
-	"os"
+	"strconv"
 
-	"github.com/JubaerHossain/golang-htmx-starter/internal"
+	"github.com/JubaerHossain/golang-htmx-starter/internal/routes"
 	"github.com/JubaerHossain/golang-htmx-starter/pkg/core"
-	"github.com/gorilla/sessions"
-	"github.com/labstack/echo-contrib/session"
-	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
-	// Create a new app
-	a := core.NewApp()
+	// Initialize logger
 
-	// Bind the routes
-	router(a)
-
-	log.Println("Starting server on port", a.HttpPort, "| Build version", a.BuildVersion)
-	if err := a.Echo.Start(fmt.Sprintf(":%d", a.HttpPort)); err != nil {
-		log.Fatal("Server error:", err)
+	// Create new app
+	app, err := core.StartApp()
+	if err != nil {
+		log.Fatalf("failed to create new app: %v", err)
 	}
+
+	// Start the app
+	router(app)
+
+	// Or you can perform any other actions with the app instance
+}
+
+func router(app *core.App) {
+	// Bind web routes
+	routes.BindWebRoute(app)
+
+	// Bind API routes
+	routes.BindApiRoute(app)
+
+	// Start the server
+	app.Echo.Logger.Fatal(app.Echo.Start(":" + strconv.Itoa(app.HttpPort)))
 }
 
 // Bindings are created in the serve package and listed here
-func router(a *core.App) *echo.Echo {
-
-	serve.BindRootRoute(a, "/") // Return the index page
-
-	// Quick hello world example for htmx get request
-	a.Echo.GET("/api/hello",
-		func(c echo.Context) error {
-			return c.String(200, "Hello, World!")
-		},
-	)
-
-	// Static files are automatically served from the public/assets directory to / (root) (Example /assets/css/style.css is served to /css/style.css)
-
-	return echoConfig(a)
-}
-
-// Example of how to configure echo
-func echoConfig(a *core.App) *echo.Echo {
-	e := a.Echo
-	e.Debug = true
-	e.HideBanner = true
-	e.HidePort = true
-	e.Use(middleware.Recover())
-	e.Use(middleware.Secure())
-	e.Use(middleware.CORS())
-	e.Use(middleware.Gzip())
-	e.Use(middleware.Logger())
-
-	e.Use(session.Middleware(sessions.NewCookieStore([]byte(os.Getenv("SESSION_SECRET")))))
-
-	return e
-}
