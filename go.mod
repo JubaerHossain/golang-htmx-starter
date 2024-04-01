@@ -4,7 +4,6 @@ go 1.22.0
 
 require (
 	github.com/gorilla/sessions v1.2.2
-	github.com/joho/godotenv v1.5.1
 	github.com/labstack/echo-contrib v0.15.0
 	github.com/labstack/echo/v4 v4.11.4
 	github.com/microcosm-cc/bluemonday v1.0.26
@@ -30,7 +29,6 @@ require (
 	github.com/spf13/cast v1.6.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
-	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect

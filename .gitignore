@@ -7,3 +7,5 @@ bun.lockb
 *.txt
 *sync-conflict*
 .idea/
+bin
+air

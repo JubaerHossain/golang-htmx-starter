@@ -5,7 +5,7 @@ install:
 	bun run dev:css
 
 dev:
-	air -c ./.air.toml
+	go run cmd/main.go
 
 build:
 	go build -o bin/$(APP_NAME) cmd/main.go
