@@ -7,6 +7,7 @@ This is a simple starter project for a web application using Golang and htmx.
 ```bash
 git clone https://github.com/JubaerHossain/golang-htmx-starter
 ```
+
 ## install dependencies
 
 ```bash
@@ -19,4 +20,9 @@ make install
 make dev
 ```
 
+### hot reload
 
+```bash
+alias air='$(go env GOPATH)/bin/air'
+air
+```
